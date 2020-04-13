@@ -14,6 +14,8 @@ https://rocket.rs/v0.4/guide/state/#databases
 
 http://diesel.rs/guides/getting-started/
 
+https://docs.diesel.rs/diesel/dsl/index.html
+
 http://docs.diesel.rs/diesel/index.html
 
 https://rocket.rs/v0.4/guide/requests/

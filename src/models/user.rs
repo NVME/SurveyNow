@@ -11,3 +11,4 @@ pub struct User {
     pub password:String, 
     pub created_at: NaiveDateTime
 }
+
