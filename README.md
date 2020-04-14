@@ -18,6 +18,8 @@ https://docs.diesel.rs/diesel/dsl/index.html
 
 http://docs.diesel.rs/diesel/index.html
 
+https://docs.diesel.rs/diesel/query_dsl/trait.RunQueryDsl.html
+
 https://rocket.rs/v0.4/guide/requests/
 
 https://api.rocket.rs/v0.4/rocket/derive.Responder.html
@@ -41,6 +43,8 @@ https://lib.rs/crates/chrono
 https://docs.diesel.rs/diesel/macro.table.html
 
 http://docs.diesel.rs/diesel/deserialize/trait.Queryable.html
+
+https://github.com/Keats/jsonwebtoken
 
 When this trait is derived, it will assume that the order of fields on your struct match the order of the fields in the query. This means that field order is significant if you are using #[derive(Queryable)]. Field name has no affect.
 

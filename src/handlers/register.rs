@@ -6,7 +6,7 @@ use crate::repositories::Conn;
 use crate::models::user::{ User};
 use crate::repositories::user::{ NewUser};
 use crate::handlers::ApplicationError;
-use diesel::result::Error;
+use diesel::result::{Error,DatabaseErrorKind};
 
 type ResponseCreated= Result<status::Created<Json<User>>,ApplicationError>;
 
@@ -15,7 +15,7 @@ pub fn new_user(user: Json<NewUser>, conn: Conn) ->ResponseCreated{
    user.create(&conn)
    .map(|user| user_created(user))  
    .map_err(|error| match error {
-       Error::DatabaseError(_kind, info)=>ApplicationError::Conflict((*info).message().to_string()),
+       Error::DatabaseError(DatabaseErrorKind::UniqueViolation, info)=>ApplicationError::Conflict((*info).message().to_string()),
        _=>ApplicationError::InternalError(String::from("Failed on creating new user, please try it again."))
    })    
  }

@@ -12,7 +12,7 @@ pub mod schema;
 pub mod models;
 pub mod handlers;
 pub mod repositories;
-use crate::handlers::{user, register};
+use crate::handlers::{user, register, authentication};
 use crate::repositories::Conn;
 
 
@@ -31,7 +31,8 @@ fn main() {
                             user::get_users,
                             register::new_user,
                             user::get,
-                            register::reset_password
+                            register::reset_password,
+                            authentication::login
                             ])           
            .launch();
 }

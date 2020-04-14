@@ -6,7 +6,7 @@ use diesel::dsl::*;
 use diesel::prelude::*;
 use diesel::result::{Error, DatabaseErrorKind};
 use diesel::{RunQueryDsl,QueryDsl};
-use bcrypt::{ hash, BcryptResult, DEFAULT_COST};
+use bcrypt::{ hash, verify, BcryptResult, DEFAULT_COST};
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Users(Vec<User>) ;
@@ -68,7 +68,7 @@ impl NewUser {
                
        if duplicated {                     
             return Err(Error::DatabaseError(DatabaseErrorKind::UniqueViolation,
-                        Box::new(String::from("Duplicated email."))));
+                        Box::new(String::from("Duplicated email.Please consider other emails"))));
         }
         diesel::insert_into(users::table)
                   .values(register)
@@ -81,4 +81,19 @@ pub struct AuthUser {
     pub password:String
 }
 
-
+impl AuthUser {
+    pub fn login(&self , conn:&PgConnection) ->Result<User ,Error>{
+       //https://docs.diesel.rs/diesel/query_dsl/trait.RunQueryDsl.html
+       let result= users::table
+                    .filter(email.eq(&self.email))
+                    .first::<User>(conn)?;
+      
+      let valid= verify(&self.password , &result.password).expect("validate password failed");
+        
+       if valid {
+            Ok(result)
+        } else{            
+            Err(Error::NotFound)
+        }       
+    }
+}

@@ -8,5 +8,7 @@ pub enum ApplicationError {
     #[response(status = 500, content_type = "json")]
     InternalError(String),
     #[response(status = 409, content_type = "json")] 
-    Conflict(String)  
+    Conflict(String),
+    #[response(status = 401, content_type = "json")] 
+    Unauthorized(String)  
 }
