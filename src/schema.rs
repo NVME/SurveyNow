@@ -1,10 +1,12 @@
-table! {//https://docs.diesel.rs/diesel/macro.table.html
+table! {
     users (id) {
-        id -> Int4,        
+        id -> Int4,
+        email -> Varchar,
         #[sql_name = "username"]
         user_name -> Varchar,
-        email -> Varchar,
-        password -> Varchar,        
+        password -> Varchar,
         created_at -> Timestamp,
+        #[sql_name = "isadmin"]
+        is_admin -> Bool,
     }
 }

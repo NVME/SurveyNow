@@ -1,6 +1,7 @@
 pub mod user;
 pub mod register;
 pub mod authentication;
+pub mod auth;
 
 //https://api.rocket.rs/v0.4/rocket/derive.Responder.html
 #[derive(Responder, Debug)]

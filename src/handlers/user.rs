@@ -4,13 +4,13 @@ use rocket_contrib::json::Json;
 use rocket::response::status;
 use rocket::http::Status;
 use crate::repositories::Conn;
-use crate::models::user::{ User};
+use crate::models::user::{ User, ValidUser, AdminUser};
 use crate::repositories::user::{ Users};
 
 
 
 #[get("/users")]
-pub fn get_users(conn: Conn)->Json<Users>{
+pub fn get_users(conn: Conn , auth:AdminUser)->Json<Users>{
     Json(Users::all(&conn))
 }
 

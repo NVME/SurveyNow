@@ -30,7 +30,15 @@ https://api.rocket.rs/v0.4/rocket/response/trait.Responder.html
 
 https://api.rocket.rs/v0.4/rocket/http/struct.Status.html
 
+https://rocket.rs/v0.4/guide/state/
+
+https://rocket.rs/v0.4/guide/fairings/
+
+https://rocket.rs/v0.4/guide/requests/
+
 https://rocket.rs/v0.4/guide/responses/
+
+https://github.com/SergioBenitez/Rocket/issues/14
 
 https://api.rocket.rs/v0.4/rocket_contrib/databases/index.html
 
@@ -38,9 +46,15 @@ https://github.com/SergioBenitez/Rocket/tree/master/examples
 
 https://rocket.rs/v0.4/guide/configuration/
 
+https://api.rocket.rs/v0.4/rocket/struct.Config.html
+
 https://lib.rs/crates/chrono
 
 https://docs.diesel.rs/diesel/macro.table.html
+
+https://jemurai.com/2018/08/27/csrf-tokens-with-restful-apis/
+
+https://security.stackexchange.com/questions/166724/should-i-use-csrf-protection-on-rest-api-endpoints
 
 http://docs.diesel.rs/diesel/deserialize/trait.Queryable.html
 
@@ -65,3 +79,6 @@ sudo kill -9 $(sudo lsof -t -i:8000)
 https://github.com/passcod/cargo-watch
 
 $ sudo ROCKET_ENV=dev cargo run
+
+
+ openssl rand -base64 32     //generate secret key

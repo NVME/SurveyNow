@@ -88,9 +88,8 @@ impl AuthUser {
                     .filter(email.eq(&self.email))
                     .first::<User>(conn)?;
       
-      let valid= verify(&self.password , &result.password).expect("validate password failed");
-        
-       if valid {
+      let valid= verify(&self.password , &result.password).expect("validate password failed");        
+      if valid {
             Ok(result)
         } else{            
             Err(Error::NotFound)

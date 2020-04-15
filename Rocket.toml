@@ -8,6 +8,7 @@ port = 8000
 workers = 1
 keep_alive = 5
 log = "normal"
+secret_key = "8Xui8SN4mI+7egV/9dlfYYLGQJeEx4+DwmSQLwDVXJg="
 limits = { forms = 32768 }
 
 [staging]

@@ -8,6 +8,8 @@ extern crate serde;
 extern crate serde_json;
 #[macro_use] extern crate serde_derive;
 extern crate bcrypt;
+extern crate jsonwebtoken as jwt;
+#[macro_use] extern crate dotenv_codegen;
 pub mod schema;
 pub mod models;
 pub mod handlers;
