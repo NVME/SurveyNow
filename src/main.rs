@@ -16,18 +16,23 @@ pub mod handlers;
 pub mod repositories;
 use crate::handlers::{user, register, authentication};
 use crate::repositories::Conn;
-
+use rocket_cors::{ self ,Cors};
 
 
 #[get("/")]
 fn index()-> &'static str {
     " Hello , rocket!"
 }
+//https://github.com/lawliet89/rocket_cors/blob/master/examples/manual.rs
+fn cors_fairing()->Cors {
 
+    Cors::from_options(&Default::default()).expect("Cors fairing cannot be created")
+}
 
 fn main() {
     rocket::ignite()
            .attach(Conn::fairing())
+           .attach(cors_fairing())
            .mount("/", 
                     routes![index,
                             user::get_users,
